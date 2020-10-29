@@ -1,19 +1,17 @@
 # Retroviral Life Cycle :microscope:
    > ### A retrovirus is a group of RNA viruses which insert a DNA copy of their genome into the host cell in order to replicate, e.g. HIV
-### PROJECT PROPOSAL 
+### OBJECTIVE 
 * The objective of this project is to display the **retroviral life cycle** as in appears in the human body. 
 * Retroviruses are unique in that they have the ability to conduct reverse transcriptase (the copying of RNA to DNA) and then splice the double stranded DNA into the host cell in order to replicate. 
 * The **Nobel Prize Laureates in Medicine** in 1975, Drs. Baltimore, Dulbecco, and Temin, were able to identify and showcase the enzyme that participates in the reverse transcriptase in a host cell. I will be showcasing this enzyme along with the entire life cycle of the virus.
 
 ---
 ![retrovirus](https://cdn.britannica.com/82/126182-050-9BA3E5B1/retrovirus-infection-DNA-reverse-transcriptase-RNA-host.jpg)
+
 ---
 
 ### SUMMARY
-
-#### Objective
-The objective of this project is to display the retroviral life cycle as in appears in the human body. A retrovirus is a group of RNA viruses which insert a DNA copy of their genome into the host cell in order to replicate, e.g. HIV
-Retroviruses are unique in that they have the ability to conduct reverse transcriptase (the copying of RNA to DNA) and then splice the double stranded DNA into the host cell in order to replicate. The Nobel Prize Laureates in Medicine in 1975, Drs. Baltimore, Dulbecco, and Temin, were able to identify and showcase the enzyme that participates in the reverse transcriptase in a host cell. I will be showcasing this enzyme along with the entire life cycle of the virus. 
+ 
 #### Project Outline
 I will use different object types to display the elements inside the virus and in the host cell. I will create the objects using code, and add textures to the elements to create a realistic environment. The program will allow the user to see a biochemical process that occurs as infection starts in the human body. Adding simulation and the Fusion/Budding phases of the virus will be the most challenging portion of this project. I plan to have all objects created for each element in the retrovirus and host cell by the progress report. I then plan to build the scene of the life cycle and host cell and work on movement of the virus. This project will require the following elements: 
 * Elements of the retrovirus: Protein Membrane, RNA and the Enzyme Transcriptase 
