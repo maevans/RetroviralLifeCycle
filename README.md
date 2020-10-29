@@ -36,3 +36,20 @@ I will use different object types to display the elements inside the virus and i
 4). Allow the user to interact with a single retroviral cell and see an in-depth look at its contents
 
 ---
+
+## TASKS
+- [ ] Create Objects 
+   - [ ] Virus Membrane 
+   - [ ] Virus Proteins & Enzynme 
+   - [ ] Virus RNA 
+   - [ ] Host Cell Membrane 
+   - [ ] Host Cell Nucleus 
+   - [ ] Host Cell DNA 
+- [ ] Simulate All Phases 
+   - [ ] Binding 
+   - [ ] Entry 
+   - [ ] Uncoating
+   - [ ] Reverse Transcription 
+   - [ ] Translation/Integration 
+   - [ ] Assembly 
+   - [ ] Budding 
