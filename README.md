@@ -20,9 +20,9 @@ I will use different object types to display the elements inside the virus and i
 * Phases of the life cycle: 
   * Binding — In the first stage the virus binds to the host cell to begin the infection 
   * Fusion — The outer protein membrane of the virus then fuses with the membrane of the host to launch the contents in the cell
+  * Entry — The viral genome enters into the nucleus and begins integration into the host cell genome
   * Uncoating — Dissolving of the virus’s membrane of to expose the viral RNA genome
   * Copy — The RNA genome is then copied into the double-stranded DNA genome 
-  * Entry — The viral genome enters into the nucleus and begins integration into the host cell genome
   * Transcription/Translation — The viral genes undergo transcription and translation to assemble 
   * Assembly/Budding — A new virus is formed and acquires an “envelope” to leave the host cell
 
