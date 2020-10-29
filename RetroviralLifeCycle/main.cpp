@@ -5,6 +5,8 @@
 //  Created by Mahalia Evans on 10/28/20.
 //
 
+// Initial Commit 
+
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
@@ -12,3 +14,5 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\n";
     return 0;
 }
+
+// Initial Commit
