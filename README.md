@@ -1,5 +1,5 @@
 # Retroviral Life Cycle :microscope:
-   > #### A retrovirus is a group of RNA viruses which insert a DNA copy of their genome into the host cell in order to replicate, e.g. HIV
+   > ### A retrovirus is a group of RNA viruses which insert a DNA copy of their genome into the host cell in order to replicate, e.g. HIV
 ### PROJECT PROPOSAL 
 * The objective of this project is to display the **retroviral life cycle** as in appears in the human body. 
 * Retroviruses are unique in that they have the ability to conduct reverse transcriptase (the copying of RNA to DNA) and then splice the double stranded DNA into the host cell in order to replicate. 
