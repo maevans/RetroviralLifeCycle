@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B848AACF254A76EF0016F480 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8895D65254A6D7C003CB4EF /* RetroviralLifeCycle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RetroviralLifeCycle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8895D68254A6D7C003CB4EF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,7 +42,8 @@
 		B8895D5C254A6D7C003CB4EF = {
 			isa = PBXGroup;
 			children = (
-				B8895D67254A6D7C003CB4EF /* RetroviralLifeCycle */,
+				B8895D68254A6D7C003CB4EF /* main.cpp */,
+				B848AACF254A76EF0016F480 /* README.md */,
 				B8895D66254A6D7C003CB4EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,14 +54,6 @@
 				B8895D65254A6D7C003CB4EF /* RetroviralLifeCycle */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B8895D67254A6D7C003CB4EF /* RetroviralLifeCycle */ = {
-			isa = PBXGroup;
-			children = (
-				B8895D68254A6D7C003CB4EF /* main.cpp */,
-			);
-			path = RetroviralLifeCycle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
