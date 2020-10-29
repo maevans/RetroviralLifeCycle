@@ -46,11 +46,11 @@ I will use different object types to display the elements inside the virus and i
    - [ ] Host Cell Nucleus 
    - [ ] Host Cell DNA 
 - [ ] Simulate All Phases 
-   - [ ] Binding 
-   - [ ] Entry 
-   - [ ] Uncoating
-   - [ ] Reverse Transcription 
-   - [ ] Translation/Integration 
-   - [ ] Assembly 
-   - [ ] Budding 
+   - [ ] 1. Binding 
+   - [ ] 2. Entry 
+   - [ ] 3. Uncoating
+   - [ ] 4. Reverse Transcription 
+   - [ ] 5. Translation/Integration 
+   - [ ] 6. Assembly 
+   - [ ] 7. Budding 
 --- 
