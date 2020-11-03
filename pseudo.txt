@@ -1,0 +1,203 @@
+
+Several keywords are often used to indicate common input, output, and processing operations.
+Input: READ, OBTAIN, GET
+Output: PRINT, DISPLAY, SHOW
+Compute: COMPUTE, CALCULATE, DETERMINE
+Initialize: SET, INIT
+Add one: INCREMENT, BUMP
+
+
+
+Elements of the retrovirus: Protein Membrane, RNA and the Enzyme Transcriptase
+
+Elements of the Host Cell: Membrane, Cytoplasm, and Nucleus
+
+Phases of the life cycle:
+
+    Binding — In the first stage the virus binds to the host cell to begin the infection
+    
+    Fusion — The outer protein membrane of the virus then fuses with the membrane of the host to launch the contents in the cell
+    
+    Uncoating — Dissolving of the virus’s membrane of to expose the viral RNA genome
+    
+    Entry — The viral genome enters into the nucleus and begins integration into the host cell genome
+    
+    Copy — The RNA genome is then copied into the double-stranded DNA genome
+    
+    Transcription/Translation — The viral genes undergo transcription and translation to assemble
+    
+    Assembly/Budding — A new virus is formed and acquires an “envelope” to leave the host cell
+    
+    
+    
+    Binding
+    Fusion
+    Uncoating
+    Reverse Transcription
+    Entry/Translation
+    Transcription
+    Assembly
+    Budding
+
+GET: ElementsOfVirus & HostCell
+
+    INIT Retrovirus_All = Visible
+
+    INIT HostCell_All = Visible
+
+SET ElementsOfVirus = Binding()
+
+START: RetroviralLifeCycle
+
+    IF ElementsOfVirus = Binding()
+
+        THEN Binding()
+        
+            READ ElementsOfVirus & READ HostCell
+            
+                Virus_Membrane_Bottom = Host_Cell_Membrane_Top
+                
+                Viral_SurfaceProtein = Host_Cell_Membrane_Top   /* Surface Envelope Protein (SU) */
+                
+            SET ElementsOfVirus = Fusion()
+        
+    ELSE IF ElementsOfVirus = Fusion()
+
+        THEN Fusion()
+        
+            READ ElementsOfVirus & READ HostCell
+            
+                Virus_Membrane_Bottom = Transparent
+                
+                Virus_Coat = Visible   /* Martix Protein (MA) */
+                
+                Virus_Capsid = Visible
+
+                Host_Cell_Membrane_Top = Transparent
+                
+            SET ElementsOfVirus = Uncoating()
+                
+    ELSE IF ElementsOfVirus = Uncoating()
+
+        THEN Uncoating()
+        
+            READ ElementsOfVirus
+            
+                Virus_Membrane_All = Transparent
+
+                Virus_Coat = transparent_parts_four  /* Martix Protein (MA) */
+                
+                    transparent_parts_four = 4_parts_visible & 4_parts_transparent
+                    
+                Virus_Capsid = transparent_parts_ten    /* Viral Capsid (CA) */
+                
+                    transparent_parts_ten = 10_parts_visible & 10_parts_transparent
+                
+                Virus_RNAs = Visible
+                
+                Virus_ReverseTranscripts = Visible
+                
+                Virus_Integrases = Visible
+            
+            SET ElementsOfVirus = ReverseTranscription()
+            
+    ELSE IF ElementsOfVirus = ReverseTranscription()
+    
+        THEN ReverseTranscription()
+        
+            READ ElementsOfVirus
+            
+                Virus_RNA = Visible
+                
+                Virus_ReverseTranscript = Visible
+                
+                SET Virus_ReverseTranscript_END = Virus_RNA_END
+                
+                    Virus_ReverseTranscript_END AND Virus_RNA_END
+                    
+                        Create Double-Stranded Proviral DNA
+                        
+                    THEN Remove Virus_ReverseTranscripts_END AND Virus_RNA_END
+                    
+                        Virus_ReverseTranscripts_END AND Virus_RNA_END = Transparent
+                    
+                        SET Virus_Integrase = Proviral_DNA_END
+            
+            SET ElementsOfVirus = Entry()
+            
+    ELSE IF ElementsOfVirus = Entry()
+
+        THEN Entry()
+        
+            READ ElementsOfVirus & HostCell
+            
+                SET Virus_Integrase AND Proviral_DNA = Inside HostCell_Nucleus
+                
+                    HostCell_DNA = Visible
+                
+                THEN HostCell_DNA_Middle = Transparent
+                    
+                    Virus_Integrase AND Proviral_DNA = HostCell_DNA_Middle
+                
+        SET ElementsOfVirus = Transcription()
+        
+    ELSE IF ElementsOfVirus = Transcription()
+    
+        THEN Transcription()
+        
+            Virus_Integrase AND Proviral_DNA AND HostCell_DNA
+            
+                Create a new mRNA for the next retroviruses
+            
+            Viral_mRNA = Leaves HostCell_Nucleus
+            
+        SET ElementsOfVirus = Assembly()
+        
+    ELSE IF ElementsOfVirus = Assembly()
+    
+        THEN Assembly()
+        
+            New ElementsOfVirus Outside HostCell_Nucleus Inside HostCell = Visible
+            
+                New Virus_ReverseTranscript = Visible
+                
+                New Viral_mRNAs = Visible
+                
+                New Virus_Integrase = Visible
+                
+                New Virus_Integrases = Visible
+                
+                New Virus_Capsid = Visible
+                
+                New Virus_Coat = Visible
+                
+                New Virus_Membrane = Visible
+                
+        SET ElementsOfVirus = Budding()
+        
+    ELSE IF ElementsOfVirus = Budding()
+        
+        THEN Budding()
+        
+            Viral_SurfaceProtein = Host_Cell_Membrane_Top   /* Surface Envelope Protein (SU) */
+            
+            New_Retroviruses = Outside HostCell_Membrane
+    ENDIF
+
+END: RetroviralLifeCycle
+
+
+
+
+
+** "Dragonfly weaving
+Through the dance that wind has made
+Of a bank’s sedge grass"
+
+-- Calvin Olsen
+
+"Snow moves down branches
+Once the piles are big enough
+The breeze explodes them"
+
+-- Calvin Olsen
