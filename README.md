@@ -27,7 +27,8 @@ I will use different object types to display the elements inside the virus and i
   * Transcription — The viral genes undergo transcription to create mRNA for new virons  
   * Assembly/Budding — A new virus is formed and acquires an “envelope” to leave the host cell
   
-  Order: 
+  Order:
+     
       * Binding
       * Fusion
       * Uncoating
