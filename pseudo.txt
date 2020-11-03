@@ -29,7 +29,6 @@ Phases of the life cycle:
     Assembly/Budding — A new virus is formed and acquires an “envelope” to leave the host cell
     
     
-    
     Binding
     Fusion
     Uncoating
@@ -38,6 +37,7 @@ Phases of the life cycle:
     Transcription
     Assembly
     Budding
+
 
 GET: ElementsOfVirus & HostCell
 
