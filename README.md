@@ -25,6 +25,15 @@ I will use different object types to display the elements inside the virus and i
   * Copy — The RNA genome is then copied into the double-stranded DNA genome 
   * Transcription/Translation — The viral genes undergo transcription and translation to assemble 
   * Assembly/Budding — A new virus is formed and acquires an “envelope” to leave the host cell
+  
+    Binding
+    Fusion
+    Uncoating
+    Reverse Transcription
+    Entry/Translation
+    Transcription
+    Assembly
+    Budding
 
 #### Stretch Goals
 1). To simulate the retroviral process in all stages from Binding to Budding 
