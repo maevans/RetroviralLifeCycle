@@ -20,11 +20,23 @@ I will use different object types to display the elements inside the virus and i
 * Phases of the life cycle: 
   * Binding — In the first stage the virus binds to the host cell to begin the infection 
   * Fusion — The outer protein membrane of the virus then fuses with the membrane of the host to launch the contents in the cell
-  * Entry — The viral genome enters into the nucleus and begins integration into the host cell genome
   * Uncoating — Dissolving of the virus’s membrane of to expose the viral RNA genome
+  * Reverse Transcription - Enzyme is used to create proviral DNA from viral RNA 
+  * Entry/Transcription — The viral genome enters into the nucleus and begins integration into the host cell genome
   * Copy — The RNA genome is then copied into the double-stranded DNA genome 
-  * Transcription/Translation — The viral genes undergo transcription and translation to assemble 
+  * Transcription — The viral genes undergo transcription to create mRNA for new virons  
   * Assembly/Budding — A new virus is formed and acquires an “envelope” to leave the host cell
+  
+  Order:
+     
+      * Binding
+      * Fusion
+      * Uncoating
+      * Reverse Transcription
+      * Entry/Translation
+      * Transcription
+      * Assembly
+      * Budding
 
 #### Stretch Goals
 1). To simulate the retroviral process in all stages from Binding to Budding 
