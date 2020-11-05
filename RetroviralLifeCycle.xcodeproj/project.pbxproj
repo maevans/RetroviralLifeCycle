@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B848AAD425520F430016F480 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B848AAD325520F430016F480 /* OpenGL.framework */; };
 		B848AAD625520F4A0016F480 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B848AAD525520F4A0016F480 /* GLUT.framework */; };
-		B8895D69254A6D7C003CB4EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8895D68254A6D7C003CB4EF /* main.cpp */; };
+		B8895D69254A6D7C003CB4EF /* VirusMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8895D68254A6D7C003CB4EF /* VirusMain.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +30,7 @@
 		B848AAD325520F430016F480 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B848AAD525520F4A0016F480 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		B8895D65254A6D7C003CB4EF /* RetroviralLifeCycle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RetroviralLifeCycle; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8895D68254A6D7C003CB4EF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B8895D68254A6D7C003CB4EF /* VirusMain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VirusMain.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 		B8895D5C254A6D7C003CB4EF = {
 			isa = PBXGroup;
 			children = (
-				B8895D68254A6D7C003CB4EF /* main.cpp */,
+				B8895D68254A6D7C003CB4EF /* VirusMain.cpp */,
 				B848AAD0254AA00E0016F480 /* pseudo.txt */,
 				B848AACF254A76EF0016F480 /* README.md */,
 				B8895D66254A6D7C003CB4EF /* Products */,
@@ -130,7 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8895D69254A6D7C003CB4EF /* main.cpp in Sources */,
+				B8895D69254A6D7C003CB4EF /* VirusMain.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
