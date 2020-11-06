@@ -55,8 +55,8 @@ I will use different object types to display the elements inside the virus and i
    - [ ] Virus Membrane 
    - [ ] Virus Proteins & Enzynme 
    - [ ] Virus RNA 
-   - [ ] Host Cell Membrane 
-   - [ ] Host Cell Nucleus 
+   - [x] Host Cell Membrane  
+   - [x] Host Cell Nucleus    
    - [ ] Host Cell DNA 
 - [ ] Simulate All Phases 
    - [ ] 1. Binding 
