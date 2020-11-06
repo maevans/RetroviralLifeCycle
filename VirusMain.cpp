@@ -4,7 +4,7 @@
 //
 //  Created by Mahalia Evans on 10/28/20.
 //
-// 
+//
 
 #define GL_SILENCE_DEPRECATION
 // ---
@@ -21,6 +21,46 @@ double ratio = WIDTH/(double)HEIGHT; //Aspect Ratio
 // ---
 
 /*
+ ********** Data Structure **********
+ ____________________________________
+ ** struct HostCell
+ ********* size (radius)
+ ********* position
+ *
+ ** struct RetroVirus
+ ********* size (radius)
+ ********* position
+ ********* direction
+
+
+ ********** Simulation Function **********
+ _________________________________________
+ * Generate Host Cell
+ ** Set Retrovirus outside of Host Cell Membrane
+ ** For every Retrovirus, give it direction
+ ** While(not end of simulation)
+ **** time = increment_simulation_time();
+ **** for every Retrovirus
+ ****** move the Retrovirus along its direction based on time
+ ** End of Simulation
+ ****** generate many retroviruses outside of Host Cell Membrane
+
+
+ ********** Visualization Function **********
+ ____________________________________________
+ * Draw a large semi-transparent sphere representing the host cell
+ ** For every retrovirus,
+ **** draw 2 cylinders for coils of viral RNA,
+ **** draw 2 small teal ovals for the Reverse Transcriptase Enzymes,
+ **** draw 2 small blue opaque sphere for the Integrase Enzymes,
+ **** draw a green wire icosaherdron for the Viral Coat,
+ **** draw a small light-green, semi-transparent sphere surrounding the icosahedron for the Viral Membrane,
+ **** draw small orange/red opaque spheres on the surface of the Viral Membrane for the Surface Envelope Proteins (SU)
+ */
+
+
+
+/*
  *   DISPLAY
  */
 void display(){
@@ -31,10 +71,15 @@ void display(){
     
     glLoadIdentity();                                    // Undo Previous Transformation
     
+    glTranslated(0, 0, 0);
+    
     // Draw Virus
-    glTranslated(0.1, 0.8, 0);
+    glTranslated(0.2, 0.8, 0);
     glColor3f(0.2, 0.7, 0.3);       // Green - 0.2/0.7/0.3
     glutSolidSphere(0.08, 10, 10);
+    
+    //glScalef(0.1, 0.1, 0.0);
+    //glutWireIcosahedron();
     
     // Draw Host Cell Membrane
     glTranslated(0, -0.8, 0);
