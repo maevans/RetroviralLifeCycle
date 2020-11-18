@@ -52,11 +52,15 @@ I will use different object types to display the elements inside the virus and i
 ## TASKS 
 ### Tracking Workflow with [Trello!](https://trello.com/b/mAQPgNuf/retrovirus-life-cycle) 
 - [ ] Create Objects 
-   - [ ] Virus Membrane 
-   - [ ] Virus Proteins & Enzynme 
+   - [x] Virus Coat
+   - [ ] Virus Capsid
    - [ ] Virus RNA 
-   - [ ] Host Cell Membrane 
-   - [ ] Host Cell Nucleus 
+   - [ ] Virus Membrane
+   - [ ] Virus Membrane Surface Envelope Proteins 
+   - [ ] Virus Reverse Transcriptase Enzymes 
+   - [ ] Virus Integrase Enzymes 
+   - [x] Host Cell Membrane  
+   - [x] Host Cell Nucleus    
    - [ ] Host Cell DNA 
 - [ ] Simulate All Phases 
    - [ ] 1. Binding 
