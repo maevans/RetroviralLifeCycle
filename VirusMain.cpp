@@ -124,6 +124,40 @@ struct HostCellDNA {  // Color - Purple
 };
 
 /*
+ ********** Visualization Function **********
+ ____________________________________________
+ * Draw a large semi-transparent sphere representing the host cell
+ ** For every retrovirus,
+ **** draw 2 cylinders for coils of viral RNA,
+ **** draw 2 small teal ovals for the Reverse Transcriptase Enzymes,
+ **** draw 2 small blue opaque sphere for the Integrase Enzymes,
+ **** draw a green wire icosaherdron for the Viral Coat,
+ **** draw a small light-green, semi-transparent sphere surrounding the icosahedron for the Viral Membrane,
+ **** draw small orange/red opaque spheres on the surface of the Viral Membrane for the Surface Envelope Proteins (SU)
+ *
+ * (1) Binding
+ * (2) Fusion
+ * (3) Uncoating
+ * (4) Reverse Transcription
+ * (5) Entry/Translation
+ * (6) Transcription
+ * (7) Assembly
+ * (8) Budding
+ *
+ */
+
+static void Binding() {
+    //- Draw a Host Cell (Membranes, Nucleus, & DNA)
+    //-- For every retrovirus, draw all components (Membranes, Coat, RT, DNA, etc.)
+}
+
+static void Fusion() {
+    //- Draw a Host Cell with part of Virus attachement Transparent
+    //-- For retrovirus, Draw half of the membrane & proteins Transparent
+}
+
+
+/*
  ********** Simulation Function **********
  _________________________________________
  * Generate Host Cell
@@ -137,19 +171,23 @@ struct HostCellDNA {  // Color - Purple
  ****** generate many retroviruses outside of Host Cell Membrane
 */
 
-
-/*
- ********** Visualization Function **********
- ____________________________________________
- * Draw a large semi-transparent sphere representing the host cell
- ** For every retrovirus,
- **** draw 2 cylinders for coils of viral RNA,
- **** draw 2 small teal ovals for the Reverse Transcriptase Enzymes,
- **** draw 2 small blue opaque sphere for the Integrase Enzymes,
- **** draw a green wire icosaherdron for the Viral Coat,
- **** draw a small light-green, semi-transparent sphere surrounding the icosahedron for the Viral Membrane,
- **** draw small orange/red opaque spheres on the surface of the Viral Membrane for the Surface Envelope Proteins (SU)
- */
+// Generate Retrovirus
+//Retrovirus allVirus () {
+//    Retrovirus virus;
+//    virus.position = randPosition ();
+//    virus.direction = randDirection ();
+//    virus.size = rand (MIN_VIRUS_SIZE, MAX_VIRUS_SIZE);
+//    virus.speed = rand (MIN_VIRUS_SPEED, MAX_VIRUS_SPEED);
+//
+//  return virus;
+//}
+//
+//// Move Retrovirus
+//void moveVirus (double elapsed_time) {
+//  virus.position.x + = virus.direction.x * elapsed_time;
+//  virus.position.y + = virus.direction.y * elapsed_time;
+//  virus.position.z + = virus.direction.z * elapsed_time;
+//}
 
 
 //--------ORTHO/PERS--------
