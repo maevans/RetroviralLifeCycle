@@ -26,19 +26,104 @@ double angle = 0;
 double elev = 0; 
 // ---
 
+
+/* ********** Data Structures ********** */
+
+struct Vec3d {
+  double x;
+  double y;
+  double z;
+};
+
+/* Retrovirus Data Structures */
+// -----------------------------
+struct RetrovirusMembrane { //  Color - Light Yellow
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct RetrovirusSU { //  Color - Blue/Green or Deep Pink/Red
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct RetrovirusCoat {  //  Color - Light Green/Yellow
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct RetrovirusCapsid { //  Color - Dark Green
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct RetrovirusRNA {  // Color - Pink
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble length;
+    GLdouble speed;
+};
+
+struct RetrovirusDNA {  // Color - Light Blue/Purple
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble length;
+    GLdouble speed;
+};
+
+struct RetrovirusIN {  // Color - Bright Orange
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble length;
+    GLdouble speed;
+};
+
+struct RetrovirusRT {  // Color - Bright Teal
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble length;
+    GLdouble speed;
+};
+
+//
+/* Host Cell Data Structures */
+// ----------------------------
+struct HostCellOuterMembrane{  //  Color - Yellow
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct HostCellInnerMembrane{ //  Color - Blue
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct HostCellNucleus{  //  Color - Light Blue
+    GLdouble radius;
+    GLdouble speed;
+};
+
+struct HostCellDNA {  // Color - Purple
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble length;
+    GLdouble speed;
+};
+
 /*
- ********** Data Structure **********
- ____________________________________
- ** struct HostCell
- ********* size (radius)
- ********* position
- *
- ** struct RetroVirus
- ********* size (radius)
- ********* position
- ********* direction
-
-
  ********** Simulation Function **********
  _________________________________________
  * Generate Host Cell
@@ -50,8 +135,10 @@ double elev = 0;
  ****** move the Retrovirus along its direction based on time
  ** End of Simulation
  ****** generate many retroviruses outside of Host Cell Membrane
+*/
 
 
+/*
  ********** Visualization Function **********
  ____________________________________________
  * Draw a large semi-transparent sphere representing the host cell
@@ -70,11 +157,12 @@ void View() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     if (modeV){
-        //printf("Field: %f \n",field);
-       gluPerspective(field, ratio, world/4, 4*world);  //  Perspective - Angle, Aspect Ratio, Min, Max
+       //  Perspective - Angle, Aspect Ratio, Min, Max
+       gluPerspective(field, ratio, world/4, 4*world);
     }
     else
-       glOrtho(-ratio*world*view_ortho, +ratio*world*view_ortho, -ratio*world*view_ortho, +ratio*world*view_ortho, -10, +10);  //  Orthogonal projection
+       //  Orthogonal projection
+       glOrtho(-ratio*world*view_ortho, +ratio*world*view_ortho, -ratio*world*view_ortho, +ratio*world*view_ortho, -10, +10);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
@@ -111,9 +199,9 @@ void display(){
          }
     
     
-    //glTranslated(0, 0, 0);
-    
+    //
     // Draw Virus
+    //
     glPushMatrix();
     glTranslated(-2, 5, 0);
     glColor3f(0.2, 0.7, 0.3);       // Green - 0.2/0.7/0.3
@@ -123,6 +211,7 @@ void display(){
 //    glScalef(0.1, 0.1, 0.0);
 //    glutWireIcosahedron();
     
+    //
     // Draw Host Cell Membrane
     //--------------------------
     //
