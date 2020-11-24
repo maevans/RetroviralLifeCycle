@@ -27,13 +27,117 @@ double elev = 0;
 // ---
 
 
-/* ********** Data Structures ********** */
+/*
+ 
+ TO LOOK UP
+ **********
+ 
+ 1). C++
+ 2). Simulation - Graphics Simulation (General)
+ 3). DNA drawing / Virus  Texture
+ 
+ */
+
+
+
+/* --- Data Structures --- */
 
 struct Vec3d {
   double x;
   double y;
   double z;
+  Vec3d(double x_ = 0, double y_ = 0, double z_ = 0) : x(x_), y(y_), z(z_) {}
 };
+
+/* Entity type */
+enum EntityType {
+  RetrovirusMembrane,     //  Color - Light Yellow - 0.9/0.9/0.1
+    
+  RetrovirusSU,           //  Color - Blue/Green or Deep Pink/Red - 0.7/0/0.5
+    
+  RetrovirusCoat,         //  Color - Light Green/Yellow - 0.6/0.9/0.4
+    
+  RetrovirusCapsid,       //  Color - Dark Green - 0.2/0.7/0.3
+    
+  RetrovirusRNA,          //  Color - Pink - 1/0.2/0.9
+    
+  RetrovirusDNA,          //  Color - Light Blue/Purple - 0.9/0.6/1
+    
+  RetrovirusIN,           //  Color - Bright Orange - 1/0.6/0
+    
+  RetrovirusRT,           //  Color - Bright Teal - 0.5/0.8/0.8
+    
+// -------------------------
+    
+  HostCellOuterMembrane,  //  Color - Yellow
+    
+  HostCellInnerMembrane,  //  Color - Blue
+    
+  HostCellNucleus,        //  Color - Light Blue
+    
+  HostCellDNA,            //  Color - Purple - 0.4/0.1/0.9
+};
+
+// -----------------------------
+struct Entity {
+    EntityType type;
+    Vec3d position;
+    Vec3d direction;
+    GLdouble radius;
+    GLdouble speed;
+};
+
+// -----------------------------
+// Function that returns the color of the entity given its type
+Vec3d colorFromType(EntityType type) {
+  switch(type) {
+      case RetrovirusMembrane: return Vec3d(0.9,0.9,0.1); // return Vec3d(1,1,0); // Color - Light Yellow - 0.9/0.9/0.1 // Orange/Yellow - 1/0.8/0.3
+      case RetrovirusSU: return Vec3d(0.7,0,0.5);           //  Surface Envelope Protein (SU)   - Color - Blue/Green or Deep Pink/Red - 0.7/0/0.5
+      case RetrovirusCoat: return Vec3d(0.6,0.9,0.4);       //  Protein Coat                    - Color - Light Green/Yellow
+      case RetrovirusCapsid: return Vec3d(0.2, 0.7, 0.3);   //  Virus Capsid                    - Color - Dark Green - 0.2/0.7/0.3
+      case RetrovirusRNA: return Vec3d(1,0.2,0.9);          //  Virus RNA                       - Color - Pink - 1/0.2/0.9:
+      case RetrovirusDNA: return Vec3d(0.9,0.6,1);          //  Virus DNA                       - Color - Light Blue/Purple - 0.9/0.6/1
+      case RetrovirusIN: return Vec3d(1,0.6,0);             //  Integrase Enzyme                - Color - Bright Orange - 1/0.6/0
+      case RetrovirusRT: return Vec3d(0.5,0.8,0.8);         //  Reverse Transcriptase           - Color - Bright Teal - 0.5/0.8/0.8
+      // -------------------------------------------------
+      case HostCellOuterMembrane: return Vec3d(1,0.8,0.3);       //  Outer Membrane Host Cell    - Color - Orange/Yellow - 1/0.8/0.3
+      case HostCellInnerMembrane: return Vec3d(0.5,0.8,1.0);     //  Inner Membrane              - Color - Blue/Green - 0.5/0.8/1.0
+      case HostCellNucleus: return Vec3d(0.7,1,1);               //  Nucleus                     - Color - Light Blue - 0.7/1/1
+      case HostCellDNA: return Vec3d(0.4,0.1,0.9);               //  DNA                         - Color - Purple - 0.4/0.1/0.9
+  }
+}
+
+// -----------------------------
+// Draws an Entity with Color
+//void drawEntity(const Entity& entity) {
+// Vec3d color = colorFromType(entity.type);
+// drawSphere(entity.radius, color);
+//}
+
+// -----------------------------
+// Draw all Entities
+//void drawEntities(std::vector<Entity>& entities) {
+//
+//  for(int i = 0; i < entities.size(); ++i) { // -- Entity SIZE? --
+//
+//    drawEntity(entities[i]); // Draw Enitty
+//  }
+//}
+
+// -----------------------------
+// Update Simulation
+//void updateSimulation(std::vector<Entity>& entities, double previous_update_time, double current_time) {
+//
+//  double delta_time = current_time - previous_update_time;   // Change in Time
+//
+//  for(int i = 0; i < entities.size(); ++i) {   // -- Entity SIZE? --
+//
+//    entities[i].position = entities[i].position + entities[i].direction * speed * delta_time; // Updates Position -> Position, Direction, Speed & Time
+//
+//  }
+//}
+
+
 
 /* Retrovirus Data Structures */
 // -----------------------------
@@ -146,16 +250,80 @@ struct HostCellDNA {  // Color - Purple
  *
  */
 
-static void Binding() {
-    //- Draw a Host Cell (Membranes, Nucleus, & DNA)
-    //-- For every retrovirus, draw all components (Membranes, Coat, RT, DNA, etc.)
-}
+//static void Binding() {
+//    //- Draw a Host Cell (Membranes, Nucleus, & DNA)
+//    //-- For every retrovirus, draw all components (Membranes, Coat, RT, DNA, etc.)
+//}
 
-static void Fusion() {
-    //- Draw a Host Cell with part of Virus attachement Transparent
-    //-- For retrovirus, Draw half of the membrane & proteins Transparent
-}
+//void Binding(int a){
+//
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear Screen & Buffers
+//
+//    glEnable(GL_DEPTH_TEST);                             // Enable Depth
+//
+//    glLoadIdentity();
+//
+//    glPushMatrix();
+//    glTranslated(0, 2, 0);
+//    glColor3f(1, 0, 0);
+//    glutSolidSphere(0.4, 10, 10);
+//    glPopMatrix();
+//
+//    glFlush();                                           // Render the scene
+//
+//    glutSwapBuffers();                                   // Make scene visible
+//
+//    glutPostRedisplay();
+//}
 
+//static void Fusion() {
+//    //- Draw a Host Cell with part of Virus attachement Transparent
+//    //-- For retrovirus, Draw half of the membrane & proteins Transparent
+//}
+
+//void Fusion(int a){
+//
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear Screen & Buffers
+//
+//    glEnable(GL_DEPTH_TEST);                             // Enable Depth
+//
+//    glLoadIdentity();
+//
+//    glPushMatrix();
+//    glTranslated(0, 5, 0);
+//    glColor3f(1, 0, 0);
+//    glutSolidSphere(0.4, 10, 10);
+//    glPopMatrix();
+//
+//    glFlush();                                           // Render the scene
+//
+//    glutSwapBuffers();                                   // Make scene visible
+//
+//    glutPostRedisplay();
+//
+//    glutTimerFunc(2000/60, Binding, 0);        // 1. BINDING
+//}
+
+//void Uncoating(int a){
+//
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear Screen & Buffers
+//
+//    glEnable(GL_DEPTH_TEST);                             // Enable Depth
+//
+//    glLoadIdentity();
+//
+//    glPushMatrix();
+//    glTranslated(0, 5, 0);
+//    glColor3f(1, 0, 0);
+//    glutSolidSphere(0.4, 10, 10);
+//    glPopMatrix();
+//
+//    glFlush();                                           // Render the scene
+//
+//    glutSwapBuffers();                                   // Make scene visible
+//
+//    glutPostRedisplay();
+//}
 
 /*
  ********** Simulation Function **********
@@ -171,26 +339,10 @@ static void Fusion() {
  ****** generate many retroviruses outside of Host Cell Membrane
 */
 
-// Generate Retrovirus
-//Retrovirus allVirus () {
-//    Retrovirus virus;
-//    virus.position = randPosition ();
-//    virus.direction = randDirection ();
-//    virus.size = rand (MIN_VIRUS_SIZE, MAX_VIRUS_SIZE);
-//    virus.speed = rand (MIN_VIRUS_SPEED, MAX_VIRUS_SPEED);
-//
-//  return virus;
-//}
-//
-//// Move Retrovirus
-//void moveVirus (double elapsed_time) {
-//  virus.position.x + = virus.direction.x * elapsed_time;
-//  virus.position.y + = virus.direction.y * elapsed_time;
-//  virus.position.z + = virus.direction.z * elapsed_time;
-//}
 
-
-//--------ORTHO/PERS--------
+//
+// -------- ORTHO/PERS --------
+//
 void View() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -204,7 +356,6 @@ void View() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
-
 
 /*
  *   DISPLAY
@@ -235,8 +386,10 @@ void display(){
            glRotatef(elev, 1, 0, 0);
            glRotatef(angle, 0, 1, 0);
          }
+
     
     
+    //--------------------------
     //
     // Draw Virus
     //
@@ -246,8 +399,12 @@ void display(){
     glutSolidSphere(0.4, 10, 10);
     glPopMatrix();
     
+    
+    
 //    glScalef(0.1, 0.1, 0.0);
 //    glutWireIcosahedron();
+    
+    
     
     //
     // Draw Host Cell Membrane
@@ -259,8 +416,8 @@ void display(){
     //glEnable(GL_BLEND);  // Enable Blending
     //glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glTranslated(-0.8, -0.8, 0);
-    glColor4f(1.0f, 0.8f, 0.3f, 0.1f);       // Orange/Yellow - 1/0.8/0.3
-    glutSolidSphere(4, 50, 50);
+    glColor3f(1.0f, 0.8f, 0.3f);       // Orange/Yellow - 1/0.8/0.3
+    glutSolidSphere(4, 50, 50);  // Host Cell - Outer Membrane
     //glDisable(GL_BLEND); // Disable Blending
     glPopMatrix();
     //--------------------------
@@ -274,6 +431,8 @@ void display(){
     glPopMatrix();
     //--------------------------
     
+    
+    
     // Draw Host Cell Nucleus
     //--------------------------
     //
@@ -285,6 +444,11 @@ void display(){
     glutSolidSphere(1.8, 20, 50);
     glPopMatrix();
     //--------------------------
+    
+    
+    glutTimerFunc(4000, Binding, 0);                // 1. BINDING
+    
+    //glutTimerFunc(4000/100, Fusion, 0);                 // 2. FUSION
     
     glFlush();                                           // Render the scene
     
@@ -350,11 +514,6 @@ void keys(unsigned char key, int x, int y)
 //
 void reshape(int width, int height){
     
-//    glMatrixMode(GL_PROJECTION);
-//    glLoadIdentity();
-//    gluPerspective(40.0, (GLdouble)width/(GLdouble)height, 0.5, 20.0);
-//    glMatrixMode(GL_MODELVIEW);
-    
     ratio = (double)width / (double)height;
     
     glViewport(0, 0, width, height);
@@ -378,6 +537,22 @@ int main(int argc, char * argv[]) {
     glutDisplayFunc(display);                            // Display Scene Func
     
     glutReshapeFunc(reshape);                            // Reshape Window
+    
+//    glutTimerFunc(2000, Binding, 0);                // 1. BINDING
+//
+//    glutTimerFunc(4000, Fusion, 0);                 // 2. FUSION
+//
+//    glutTimerFunc(3000, Uncoating, 0);              // 3. Uncoating
+//
+//    glutTimerFunc(4000, ReverseTranscription, 0);   // 4. ReverseTranscription
+//
+//    glutTimerFunc(5000, Entry, 0);                  // 5. Entry
+//
+//    glutTimerFunc(6000, Translation, 0);            // 6. Translation
+//
+//    glutTimerFunc(7000, Assembly, 0);               // 7. Assembly
+//
+//    glutTimerFunc(8000, Budding, 0);                // 8. BUDDING
     
     glutKeyboardFunc(keys);                              // Set Window's keys callback
        
