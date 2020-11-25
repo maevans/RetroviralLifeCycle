@@ -26,22 +26,7 @@ double angle = 0;
 double elev = 0; 
 // ---
 
-
-/*
- 
- TO LOOK UP
- **********
- 
- 1). C++
- 2). Simulation - Graphics Simulation (General)
- 3). DNA drawing / Virus  Texture
- 
- */
-
-
-
 /* --- Data Structures --- */
-
 struct Vec3d {
   double x;
   double y;
@@ -69,11 +54,11 @@ enum EntityType {
     
 // -------------------------
     
-  HostCellOuterMembrane,  //  Color - Yellow
+  HostCellOuterMembrane,  //  Color - Yellow - 1/0.8/0.3
     
-  HostCellInnerMembrane,  //  Color - Blue
+  HostCellInnerMembrane,  //  Color - Blue - 0.5/0.8/1.0
     
-  HostCellNucleus,        //  Color - Light Blue
+  HostCellNucleus,        //  Color - Light Blue - 0.7/1/1
     
   HostCellDNA,            //  Color - Purple - 0.4/0.1/0.9
 };
@@ -118,11 +103,26 @@ Vec3d colorFromType(EntityType type) {
 // Draw all Entities
 //void drawEntities(std::vector<Entity>& entities) {
 //
-//  for(int i = 0; i < entities.size(); ++i) { // -- Entity SIZE? --
+//  for(int i = 0; i < entities.size(); ++i) { // -- Entity SIZE --
 //
 //    drawEntity(entities[i]); // Draw Enitty
 //  }
 //}
+
+
+/*
+ ********** Simulation Function **********
+ _________________________________________
+ * Generate Host Cell
+ ** Set Retrovirus outside of Host Cell Membrane
+ ** For every Retrovirus, give it direction
+ ** While(not end of simulation)
+ **** time = increment_simulation_time();
+ **** for every Retrovirus
+ ****** move the Retrovirus along its direction based on time
+ ** End of Simulation
+ ****** generate many retroviruses outside of Host Cell Membrane
+*/
 
 // -----------------------------
 // Update Simulation
@@ -138,94 +138,6 @@ Vec3d colorFromType(EntityType type) {
 //}
 
 
-
-/* Retrovirus Data Structures */
-// -----------------------------
-struct RetrovirusMembrane { //  Color - Light Yellow
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct RetrovirusSU { //  Color - Blue/Green or Deep Pink/Red
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct RetrovirusCoat {  //  Color - Light Green/Yellow
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct RetrovirusCapsid { //  Color - Dark Green
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct RetrovirusRNA {  // Color - Pink
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble length;
-    GLdouble speed;
-};
-
-struct RetrovirusDNA {  // Color - Light Blue/Purple
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble length;
-    GLdouble speed;
-};
-
-struct RetrovirusIN {  // Color - Bright Orange
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble length;
-    GLdouble speed;
-};
-
-struct RetrovirusRT {  // Color - Bright Teal
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble length;
-    GLdouble speed;
-};
-
-//
-/* Host Cell Data Structures */
-// ----------------------------
-struct HostCellOuterMembrane{  //  Color - Yellow
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct HostCellInnerMembrane{ //  Color - Blue
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct HostCellNucleus{  //  Color - Light Blue
-    GLdouble radius;
-    GLdouble speed;
-};
-
-struct HostCellDNA {  // Color - Purple
-    Vec3d position;
-    Vec3d direction;
-    GLdouble radius;
-    GLdouble length;
-    GLdouble speed;
-};
 
 /*
  ********** Visualization Function **********
@@ -304,41 +216,7 @@ struct HostCellDNA {  // Color - Purple
 //    glutTimerFunc(2000/60, Binding, 0);        // 1. BINDING
 //}
 
-//void Uncoating(int a){
-//
-//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear Screen & Buffers
-//
-//    glEnable(GL_DEPTH_TEST);                             // Enable Depth
-//
-//    glLoadIdentity();
-//
-//    glPushMatrix();
-//    glTranslated(0, 5, 0);
-//    glColor3f(1, 0, 0);
-//    glutSolidSphere(0.4, 10, 10);
-//    glPopMatrix();
-//
-//    glFlush();                                           // Render the scene
-//
-//    glutSwapBuffers();                                   // Make scene visible
-//
-//    glutPostRedisplay();
-//}
-
-/*
- ********** Simulation Function **********
- _________________________________________
- * Generate Host Cell
- ** Set Retrovirus outside of Host Cell Membrane
- ** For every Retrovirus, give it direction
- ** While(not end of simulation)
- **** time = increment_simulation_time();
- **** for every Retrovirus
- ****** move the Retrovirus along its direction based on time
- ** End of Simulation
- ****** generate many retroviruses outside of Host Cell Membrane
-*/
-
+// ... Other phases
 
 //
 // -------- ORTHO/PERS --------
@@ -391,42 +269,40 @@ void display(){
     
     //--------------------------
     //
-    // Draw Virus
+    // Draw Virus | Green - 0.2/0.7/0.3
     //
     glPushMatrix();
     glTranslated(-2, 5, 0);
-    glColor3f(0.2, 0.7, 0.3);       // Green - 0.2/0.7/0.3
+    glColor3f(0.2, 0.7, 0.3);
     glutSolidSphere(0.4, 10, 10);
     glPopMatrix();
-    
     
     
 //    glScalef(0.1, 0.1, 0.0);
 //    glutWireIcosahedron();
     
     
-    
     //
     // Draw Host Cell Membrane
     //--------------------------
     //
-    // --- Outer Membrane --- Orange Sphere
+    // --- Outer Membrane --- | Orange/Yellow - 1/0.8/0.3
     //
     glPushMatrix();
-    //glEnable(GL_BLEND);  // Enable Blending
-    //glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);  // Enable Blending
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glTranslated(-0.8, -0.8, 0);
-    glColor3f(1.0f, 0.8f, 0.3f);       // Orange/Yellow - 1/0.8/0.3
-    glutSolidSphere(4, 50, 50);  // Host Cell - Outer Membrane
-    //glDisable(GL_BLEND); // Disable Blending
+    glColor3f(1.0f, 0.8f, 0.3f);
+    glutSolidSphere(4, 50, 50);
+    glDisable(GL_BLEND); // Disable Blending
     glPopMatrix();
     //--------------------------
     //
-    // --- Inner Membrane --- Blue Sphere
+    // --- Inner Membrane --- | Blue/Green - 0.5/0.8/1.0
     //
     glPushMatrix();
     glTranslated(-1.2, -0.2, 2);
-    glColor4f(0.5, 0.8, 1.0, 0.5);       // Blue/Green - 0.5, 0.8, 1.0
+    glColor4f(0.5, 0.8, 1.0, 0.5);
     glutSolidSphere(3.5, 50, 50);
     glPopMatrix();
     //--------------------------
@@ -436,19 +312,22 @@ void display(){
     // Draw Host Cell Nucleus
     //--------------------------
     //
-    // --- Light Blue Sphere ---
+    // --- Light Blue Sphere  --- | Light Blue - 0.7/1/1
     //
     glPushMatrix();
     glTranslated(-1.2, -0.06, 6);
-    glColor3f(0.7, 1.0, 1.0);       // Light Blue - 0.7/1/1
+    glColor3f(0.7, 1.0, 1.0);
     glutSolidSphere(1.8, 20, 50);
     glPopMatrix();
     //--------------------------
     
     
-    glutTimerFunc(4000, Binding, 0);                // 1. BINDING
+    // glutTimerFunc(4000, Binding, 0);                    // 1. BINDING
     
-    //glutTimerFunc(4000/100, Fusion, 0);                 // 2. FUSION
+    // glutTimerFunc(4000/100, Fusion, 0);                 // 2. FUSION
+    
+    // ...
+    
     
     glFlush();                                           // Render the scene
     
@@ -469,11 +348,11 @@ void arrows(int key, int x, int y) {
     else if (key == GLUT_KEY_LEFT)        // Left arrow - decrease by 2 degree
         angle -= 2;
     
-    else if (key == GLUT_KEY_UP)          // Up arrow - increase by 5 degree
-        elev += 5;
-    
-    else if (key == GLUT_KEY_DOWN)        // Down arrow - decrease by 5 degree
+    else if (key == GLUT_KEY_UP)          // Up arrow - decrease by 5 degree
         elev -= 5;
+    
+    else if (key == GLUT_KEY_DOWN)        // Down arrow - increase by 5 degree
+        elev += 5;
     
     View();                               // Reset View
     
@@ -518,7 +397,7 @@ void reshape(int width, int height){
     
     glViewport(0, 0, width, height);
     
-    View();                                   // ORTHO vs. PERS
+    View();  // ORTHO vs. PERS
 }
 
 //
@@ -564,3 +443,112 @@ int main(int argc, char * argv[]) {
 }
 
 // ================================================================================================
+
+
+
+
+
+// =========== NOTES ============
+
+
+
+/*
+ 
+ TO LOOK UP
+ **********
+ 
+ 1). Vectors & Managing Memory
+ 2). Simulation - Graphics between Phases
+ 3). GLBlending & Textures
+ 
+ */
+
+
+/* Retrovirus Data Structures */
+// -----------------------------
+//struct RetrovirusMembrane { //  Color - Light Yellow
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+
+//
+//struct RetrovirusSU { //  Color - Blue/Green or Deep Pink/Red
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+//
+//struct RetrovirusCoat {  //  Color - Light Green/Yellow
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+//
+//struct RetrovirusCapsid { //  Color - Dark Green
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+//
+//struct RetrovirusRNA {  // Color - Pink
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble length;
+//    GLdouble speed;
+//};
+//
+//struct RetrovirusDNA {  // Color - Light Blue/Purple
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble length;
+//    GLdouble speed;
+//};
+//
+//struct RetrovirusIN {  // Color - Bright Orange
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble length;
+//    GLdouble speed;
+//};
+//
+//struct RetrovirusRT {  // Color - Bright Teal
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble length;
+//    GLdouble speed;
+//};
+//
+////
+///* Host Cell Data Structures */
+//// ----------------------------
+//struct HostCellOuterMembrane{  //  Color - Yellow
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+//
+//struct HostCellInnerMembrane{ //  Color - Blue
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+//
+//struct HostCellNucleus{  //  Color - Light Blue
+//    GLdouble radius;
+//    GLdouble speed;
+//};
+//
+//struct HostCellDNA {  // Color - Purple
+//    Vec3d position;
+//    Vec3d direction;
+//    GLdouble radius;
+//    GLdouble length;
+//    GLdouble speed;
+//};
