@@ -25,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B847B11E256E507400A75509 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		B848AACF254A76EF0016F480 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B848AAD0254AA00E0016F480 /* pseudo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = pseudo.txt; sourceTree = "<group>"; };
 		B848AAD325520F430016F480 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -59,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				B8895D68254A6D7C003CB4EF /* VirusMain.cpp */,
+				B847B11E256E507400A75509 /* makefile */,
 				B848AAD0254AA00E0016F480 /* pseudo.txt */,
 				B848AACF254A76EF0016F480 /* README.md */,
 				B8895D66254A6D7C003CB4EF /* Products */,

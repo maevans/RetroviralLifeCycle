@@ -16,6 +16,7 @@
 #include <math.h>
 #define WIDTH 600
 #define HEIGHT 600
+
 // ---
 double ratio = WIDTH/(double)HEIGHT; // Aspect Ratio
 double world = 5.0;                  // Dimensions
