@@ -35,6 +35,8 @@ struct Vec3d {
   Vec3d(double x_ = 0, double y_ = 0, double z_ = 0) : x(x_), y(y_), z(z_) {}
 };
 
+/* Function Pointers */
+
 /* Entity type */
 enum EntityType {
   RetrovirusMembrane,     //  Color - Light Yellow - 0.9/0.9/0.1
@@ -67,11 +69,136 @@ enum EntityType {
 // -----------------------------
 struct Entity {
     EntityType type;
+    void(*draw)(); // Color & Shape - func point
     Vec3d position;
     Vec3d direction;
     GLdouble radius;
     GLdouble speed;
 };
+
+
+// ******************************************************************
+
+// -----------------------------
+//update(int milliseconds)   // 16.6ms = 1/60th a second.
+//  pos+=vel*milliseconds;
+//
+//
+//initializeState()
+//{
+//  state = 0;
+//  Time2Event = 1;
+//}
+//ProcessState(int milliseconds)
+//{
+//  switch(EventStrategy)
+//  {
+//      case:  WAIT_FOR_TIMER
+//
+//    Time2Event-=milliseconds;
+//    if (Time2Event < 0)
+//    {
+//      switch(state)
+//      {
+//        case 0:                // Wait before we start to move.
+//                  vel = 1;
+//                  Time2Event += 3;
+//                  state = 1;
+//                  break;
+//
+//        case 1:
+//                  vel = 0;
+//                  eventStrategy=WAIT_FOR_MESSAGE;
+//                  state = 2'
+//                  break;
+//
+//        case 2:
+//                    if(distance(obj1,obj2) < 1)
+//                  state =3;
+//                    Time2Event+=milliseconds;
+//                  break;
+//        case 3:
+//                  drawExplosion();
+//
+//
+//        }
+//    }
+//      break;   // Wait for Timer.
+//     case:  WAIT_FOR_MESSAGE
+//       getMessage()
+//       ProcessMessage();
+//      break;
+//  }
+//  {
+//}
+//
+//
+////-----------------------------------
+//Entity actors_scene1 [40];
+//Entity actors_scene2 [40];
+//enum {
+//  RNA=0,
+//  cell,
+//
+//}
+//
+//InitializeActors()
+//{
+//  actors[RNA].draw = &DrawCylinder();
+//  actors[RNA].position = glVertex(2,3,4);
+//  actors[RNA].glColor4f = glColor4F(0,0,0,.5);
+//
+//}
+//
+//DrawAllActors()
+//{
+//  for (i=0; < NUM_ACTORS; i++)
+//  {
+//    // Look up calling syntax for Virtual FUnctions.
+//    actors.draw();
+//  }
+//}
+//
+//
+//class Entity {
+//    EntityType type;
+//    Vec3d position;
+//    Vec3d direction;
+//  glMatrix4 rotation;
+//    GLdouble radius;
+//    GLdouble speed;
+//
+//  (bool)(*draw)() = DrawSphere();
+//
+//  //glColor3f(1, 0, 0);
+//  Color glColor4f;
+//
+//  bool DrawSphere();
+//  bool DrawCylinder();
+//  bool Draw20Sided();
+//  bool Draw20Exploded();
+////
+//  // Look up the instantiation syntax on Virtual FUnctions.
+//  (void)(*update)(int time) = NoUpdate(int );
+//
+//
+//  void NoUpdate();
+//  void updateMovingObject();
+//  void updatePulsingObject();
+//
+//  int State;
+//
+//};
+//bool Entity::DrawSphere()
+//{
+//  glSetColr(glColor4f);
+//  glTranslate(rotation);
+//
+//}
+
+// ******************************************************************
+
+
 
 // -----------------------------
 // Function that returns the color of the entity given its type
@@ -97,7 +224,9 @@ Vec3d colorFromType(EntityType type) {
 // Draws an Entity with Color
 //void drawEntity(const Entity& entity) {
 // Vec3d color = colorFromType(entity.type);
-// drawSphere(entity.radius, color);
+// drawSphere_Virus(entity.radius, color);
+// drawSphere_Host(entity.radius, color);
+// // .. Objects
 //}
 
 // -----------------------------
@@ -106,7 +235,8 @@ Vec3d colorFromType(EntityType type) {
 //
 //  for(int i = 0; i < entities.size(); ++i) { // -- Entity SIZE --
 //
-//    drawEntity(entities[i]); // Draw Enitty
+//    drawEntity(entities[i]); // Draw all Objects
+//    // ..
 //  }
 //}
 
@@ -168,26 +298,26 @@ Vec3d colorFromType(EntityType type) {
 //    //-- For every retrovirus, draw all components (Membranes, Coat, RT, DNA, etc.)
 //}
 
-//void Binding(int a){
-//
-//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear Screen & Buffers
-//
-//    glEnable(GL_DEPTH_TEST);                             // Enable Depth
-//
-//    glLoadIdentity();
-//
-//    glPushMatrix();
-//    glTranslated(0, 2, 0);
-//    glColor3f(1, 0, 0);
-//    glutSolidSphere(0.4, 10, 10);
-//    glPopMatrix();
-//
-//    glFlush();                                           // Render the scene
-//
-//    glutSwapBuffers();                                   // Make scene visible
-//
-//    glutPostRedisplay();
-//}
+void Binding(int a){
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear Screen & Buffers
+
+    glEnable(GL_DEPTH_TEST);                             // Enable Depth
+
+    glLoadIdentity();
+
+    glPushMatrix();
+    glTranslated(0, 2, 0);
+    glColor3f(1, 0, 0);
+    glutSolidSphere(0.4, 10, 10);
+    glPopMatrix();
+
+    glFlush();                                           // Render the scene
+
+    glutSwapBuffers();                                   // Make scene visible
+
+    glutPostRedisplay();
+}
 
 //static void Fusion() {
 //    //- Draw a Host Cell with part of Virus attachement Transparent
@@ -217,6 +347,8 @@ Vec3d colorFromType(EntityType type) {
 //    glutTimerFunc(2000/60, Binding, 0);        // 1. BINDING
 //}
 
+///////////////////////////////////////////////////////////
+//
 // ... Other phases
 
 //
