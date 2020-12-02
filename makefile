@@ -17,6 +17,7 @@ else                                                        # Linux/Unix/Solaris
 CCFLAGS = -O3 -Wall
 LIBS = -lglut -lGLU -lGL -lm
 endif
+# ---
 
 # DEPENDENCY
 VirusMain.o: VirusMain.cpp
