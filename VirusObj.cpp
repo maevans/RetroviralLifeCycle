@@ -33,19 +33,70 @@
 void InitialScene(){
 
     //--------------------------
-    //
-    // Draw Virus | Green - 0.2/0.7/0.3
-    //
+    
+    // -- * Add Surface Proteins * --
+    
+    /* Protein Coat */
     glPushMatrix();
+    glEnable(GL_BLEND);  // Enable Blending
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
     glTranslated(-2, 5, 0);
-    glColor3f(0.2, 0.7, 0.3);
-    glutSolidSphere(0.4, 10, 10);
+    glColor3f(0.6,0.9,0.4);
+    glutSolidSphere(0.8, 10, 10);
+    glDisable(GL_BLEND); // Disable Blending
     glPopMatrix();
-
-
-//    glScalef(0.1, 0.1, 0.0);
-//    glutWireIcosahedron();
-
+    
+    /* Virus Capsid */
+    glPushMatrix();
+    glEnable(GL_BLEND);  // Enable Blending
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
+    glTranslated(-2.2, 5.2, 1);
+    glColor3f(0.2, 0.7, 0.3);
+    glScalef(0.6, 0.6, 0.4);
+    glutSolidIcosahedron();
+    glDisable(GL_BLEND); // Disable Blending
+    glPopMatrix();
+    
+    /* Virus RNA */
+    GLUquadricObj *quad;
+    quad = gluNewQuadric();
+    
+    /* RNA */
+    glPushMatrix();
+    glTranslated(-2.6, 5.2, 1.4);
+    glColor3f(1.0f, 0.2f, 0.9f);
+    glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+    gluCylinder(quad,0.05f,0.05f,0.3f,32,32);
+    glPopMatrix();
+    
+    /* Integrase Enzyme */
+    glPushMatrix();
+    glTranslated(-2, 5, 1.4);
+    glColor3f(1,0.6,0);
+    glutSolidSphere(0.08, 30, 100);
+    glPopMatrix();
+    
+    /* Reverse Transcriptase */
+    glPushMatrix();
+    glTranslated(-2.6, 5.5, 1.4);
+    glColor3f(0.5,0.8,0.8);
+    glutSolidSphere(0.1, 60, 100);
+    glPopMatrix();
+    
+    /* Host Cell DNA */
+    glPushMatrix();
+    glColor3f(0.4f, 0.1f, 0.9f);
+    glTranslated(-2.8, 0.4, 8);
+    glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+    gluCylinder(quad,0.05f,0.05f,1.5f,32,32);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glColor3f(0.4f, 0.1f, 0.9f);
+    glTranslated(-2.8, 0.2, 8);
+    glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+    gluCylinder(quad,0.05f,0.05f,1.5f,32,32);
+    glPopMatrix();
     
     /* Draw Host Cell Membrane */
     //--------------------------
@@ -61,39 +112,34 @@ void InitialScene(){
     //--------------------------
     // --- Inner Membrane --- | Blue/Green
     glPushMatrix();
-    glEnable(GL_BLEND);  // Enable Blending
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+//    glEnable(GL_BLEND);  // Enable Blending
+//    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glTranslated(-1.2, -0.2, 2);
     glColor4f(0.5, 0.8, 1.0, 0.5);
     glutSolidSphere(3.5, 50, 50);
-    glDisable(GL_BLEND); // Disable Blending
+//    glDisable(GL_BLEND); // Disable Blending
     glPopMatrix();
     //--------------------------
     /* Draw Host Cell Nucleus | Light Blue */
     //--------------------------
     glPushMatrix();
-    glEnable(GL_BLEND);  // Enable Blending
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_ALPHA);
+//    glEnable(GL_BLEND);  // Enable Blending
+//    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_ALPHA);
     glTranslated(-1.2, -0.06, 6);
     glColor3f(0.7, 1.0, 1.0);
     glutSolidSphere(1.8, 20, 50);
-    glDisable(GL_BLEND); // Disable Blending
+//    glDisable(GL_BLEND); // Disable Blending
     glPopMatrix();
     //--------------------------
 
 }
 
-//static void Binding() {
-//    //- Draw a Host Cell (Membranes, Nucleus, & DNA)
-//    //-- For every retrovirus, draw all components (Membranes, Coat, RT, DNA, etc.)
-//}
-
+//*******************
+//  (1)  Binding
+//
 void Binding(){
 
-    //--------------------------
-    //
-    // Draw Virus | Green
-    //
+    /* Virus Coat */
     glPushMatrix();
     glTranslated(-2, 3, 0);
     glColor3f(0.2, 0.7, 0.3);
@@ -101,8 +147,16 @@ void Binding(){
     glPopMatrix();
 
 
-//    glScalef(0.1, 0.1, 0.0);
-//    glutWireIcosahedron();
+    /* Virus Capsid */
+    glPushMatrix();
+    glEnable(GL_BLEND);  // Enable Blending
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
+    glTranslated(-2.2, 5.2, 1);
+    glColor3f(0.2, 0.7, 0.3);
+    glScalef(0.6, 0.6, 0.4);
+    glutSolidIcosahedron();
+    glDisable(GL_BLEND); // Disable Blending
+    glPopMatrix();
 
 
     /* Draw Host Cell Membrane */
@@ -141,11 +195,9 @@ void Binding(){
 
 }
 
-//static void Fusion() {
-//    //- Draw a Host Cell with part of Virus attachement Transparent
-//    //-- For retrovirus, Draw half of the membrane & proteins Transparent
-//}
-
+//*******************
+//  (2)  Fusion
+//
 void Fusion(){
     
     //--------------------------
@@ -159,8 +211,16 @@ void Fusion(){
     glPopMatrix();
 
 
-//    glScalef(0.1, 0.1, 0.0);
-//    glutWireIcosahedron();
+    /* Virus Capsid */
+    glPushMatrix();
+    glEnable(GL_BLEND);  // Enable Blending
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
+    glTranslated(-2.2, 5.2, 1);
+    glColor3f(0.2, 0.7, 0.3);
+    glScalef(0.6, 0.6, 0.4);
+    glutSolidIcosahedron();
+    glDisable(GL_BLEND); // Disable Blending
+    glPopMatrix();
 
 
     /* Draw Host Cell Membrane */
@@ -228,8 +288,16 @@ void Uncoating(){
     glPopMatrix();
 
 
-//    glScalef(0.1, 0.1, 0.0);
-//    glutWireIcosahedron();
+    /* Virus Capsid */
+    glPushMatrix();
+    glEnable(GL_BLEND);  // Enable Blending
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_DST_COLOR);
+    glTranslated(-2.2, 5.2, 1);
+    glColor3f(0.2, 0.7, 0.3);
+    glScalef(0.6, 0.6, 0.4);
+    glutSolidIcosahedron();
+    glDisable(GL_BLEND); // Disable Blending
+    glPopMatrix();
 
 
     /* Draw Host Cell Membrane */
@@ -274,19 +342,6 @@ void Uncoating(){
 void ReverseTranscription(){
     
     /* --------------- */
-    
-    
-    /*  void glRotated(  GLdouble angle,
-                         GLdouble x,
-                         GLdouble y,
-                         GLdouble z); */
-    
-    /* void gluCylinder(    GLUquadric* quad,
-                            GLdouble base,
-                            GLdouble top,
-                            GLdouble height,
-                            GLint slices,
-                            GLint stacks); */
     
     GLUquadricObj *quad;
     quad = gluNewQuadric();
