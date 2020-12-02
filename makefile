@@ -21,6 +21,8 @@ endif
 
 # DEPENDENCY
 VirusMain.o: VirusMain.cpp
+VirusObj.o: VirusObj.cpp VirusMain.cpp
+VirusTime.o: VirusTime.cpp VirusMain.cpp
 
 # COMPILE
 .c.o:

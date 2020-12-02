@@ -27,9 +27,9 @@
 /* Begin PBXFileReference section */
 		B847B11E256E507400A75509 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		B847B17D25774C7700A75509 /* VirusTime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VirusTime.cpp; sourceTree = "<group>"; };
-		B847B17E25774C7700A75509 /* VirusTime.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VirusTime.hpp; sourceTree = "<group>"; };
 		B847B18025778CE900A75509 /* VirusObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VirusObj.cpp; sourceTree = "<group>"; };
 		B847B1822577D5BE00A75509 /* cell_environ.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cell_environ.bmp; sourceTree = "<group>"; };
+		B847B1872577DEE700A75509 /* Math.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
 		B848AACF254A76EF0016F480 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B848AAD0254AA00E0016F480 /* pseudo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = pseudo.txt; sourceTree = "<group>"; };
 		B848AAD325520F430016F480 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -66,7 +66,7 @@
 				B8895D68254A6D7C003CB4EF /* VirusMain.cpp */,
 				B847B18025778CE900A75509 /* VirusObj.cpp */,
 				B847B17D25774C7700A75509 /* VirusTime.cpp */,
-				B847B17E25774C7700A75509 /* VirusTime.hpp */,
+				B847B1872577DEE700A75509 /* Math.cpp */,
 				B847B11E256E507400A75509 /* makefile */,
 				B848AAD0254AA00E0016F480 /* pseudo.txt */,
 				B847B1822577D5BE00A75509 /* cell_environ.bmp */,

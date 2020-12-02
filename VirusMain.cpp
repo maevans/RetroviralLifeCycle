@@ -81,6 +81,25 @@ struct Entity {
     GLdouble speed;
 };
 
+// -----------------------------
+// Function for color of entity given its type
+Vec3d colorFromType(EntityType type) {
+  switch(type) {
+      case RetrovirusMembrane: return Vec3d(0.9,0.9,0.1);
+      case RetrovirusSU: return Vec3d(0.7,0,0.5);
+      case RetrovirusCoat: return Vec3d(0.6,0.9,0.4);
+      case RetrovirusCapsid: return Vec3d(0.2, 0.7, 0.3);
+      case RetrovirusRNA: return Vec3d(1,0.2,0.9);
+      case RetrovirusDNA: return Vec3d(0.9,0.6,1);
+      case RetrovirusIN: return Vec3d(1,0.6,0);
+      case RetrovirusRT: return Vec3d(0.5,0.8,0.8);
+      // -------------------------------------------------
+      case HostCellOuterMembrane: return Vec3d(1,0.8,0.3);
+      case HostCellInnerMembrane: return Vec3d(0.5,0.8,1.0);
+      case HostCellNucleus: return Vec3d(0.7,1,1);
+      case HostCellDNA: return Vec3d(0.4,0.1,0.9);
+  }
+}
 
 // ******************************************************************
 
@@ -149,28 +168,6 @@ struct Entity {
 //}
 
 // ******************************************************************
-
-
-
-// -----------------------------
-// Function that returns the color of the entity given its type
-Vec3d colorFromType(EntityType type) {
-  switch(type) {
-      case RetrovirusMembrane: return Vec3d(0.9,0.9,0.1);
-      case RetrovirusSU: return Vec3d(0.7,0,0.5);
-      case RetrovirusCoat: return Vec3d(0.6,0.9,0.4);
-      case RetrovirusCapsid: return Vec3d(0.2, 0.7, 0.3);
-      case RetrovirusRNA: return Vec3d(1,0.2,0.9);
-      case RetrovirusDNA: return Vec3d(0.9,0.6,1);
-      case RetrovirusIN: return Vec3d(1,0.6,0);
-      case RetrovirusRT: return Vec3d(0.5,0.8,0.8);
-      // -------------------------------------------------
-      case HostCellOuterMembrane: return Vec3d(1,0.8,0.3);
-      case HostCellInnerMembrane: return Vec3d(0.5,0.8,1.0);
-      case HostCellNucleus: return Vec3d(0.7,1,1);
-      case HostCellDNA: return Vec3d(0.4,0.1,0.9);
-  }
-}
 
 // -----------------------------
 // Draws an Entity with Color
@@ -389,9 +386,7 @@ int main(int argc, char * argv[]) {
     glutInit(&argc,argv);                                // Initialize GLUT
     
     glutInitWindowSize(WIDTH,HEIGHT);                    // Initial Window Size
-    
-    //glutInitWindowPosition(WIDTH,HEIGHT);
-    
+        
     glutCreateWindow("Retroviral Life Cycle");           // Create window
     
     glClearColor(0.9, 1.0, 1.0, 1.0);                    // Light Blue Background - 0.9/1/1
@@ -416,24 +411,3 @@ int main(int argc, char * argv[]) {
 }
 
 // ================================================================================================
-
-
-
-
-
-// =========== NOTES ============
-
-
-/*
- 
- TO LOOK UP
- **********
- 
- 1). Vectors & Managing Memory
- 2). Simulation - Graphics between Phases
- 3). GLBlending & Textures
- 4). Function Pointers
- 5). Shaders
- 
- */
-
